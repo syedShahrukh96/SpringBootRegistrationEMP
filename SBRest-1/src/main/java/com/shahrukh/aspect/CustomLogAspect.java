@@ -8,15 +8,24 @@ import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
 public class CustomLogAspect {
 	
+	Logger logger = LoggerFactory.getLogger(CustomLogAspect.class);
+	
 	@Before(value = "execution(* com.shahrukh.controller.*.*(..))")
 	public void before(JoinPoint joinPoint) {
 		System.out.println("Before: "+ joinPoint.getSignature());
+		logger.info("Info: ");
+		logger.error("Error: ");
+		logger.trace("Trace: ");
+		logger.warn("Warn: ");
+		logger.debug("Debug: ");
 	}
 	
 	@After(value ="execution(* com.shahrukh.controller.*.*(..))")
