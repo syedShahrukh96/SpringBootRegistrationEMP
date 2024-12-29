@@ -19,7 +19,7 @@ public class Employee {
 	private String phone;
 	
 	
-	@Column(unique=true)
+	//@Column(unique=true)
 	private String email;
 	private String password;
 	
